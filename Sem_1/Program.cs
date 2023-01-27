@@ -97,7 +97,7 @@ int Number4_1 = Convert.ToInt32(strNumber4_1);
 
 if (Number4_1 <= 0)
 {
-  System.Console.WriteLine("Число должно быть натуральным");
+  System.Console.WriteLine("Решений нет");
   return;
   }
 else if (Number4_1 == 1)
