@@ -95,16 +95,11 @@ System.Console.Write("Введите число: ");
 string strNumber4_1 = Console.ReadLine();
 int Number4_1 = Convert.ToInt32(strNumber4_1);
 
-if (Number4_1 <= 0)
+if (Number4_1 <= 1)
 {
-  System.Console.WriteLine("Решений нет");
-  return;
-  }
-else if (Number4_1 == 1)
-{
-  System.Console.WriteLine("Решений нет");
-  return;
-  }
+System.Console.WriteLine("Решений нет");
+return;
+}
 
 else
 {
