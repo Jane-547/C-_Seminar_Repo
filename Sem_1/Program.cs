@@ -7,11 +7,11 @@
 
 System.Console.WriteLine("Задача 2");
 System.Console.Write("Введите первое число: ");
-string strNumber1_1 = Console.ReadLine();          // Int number = Convert.TOint32(Console.ReadLine()); - можно заменить так
+string? strNumber1_1 = Console.ReadLine();          // Int number = Convert.TOint32(Console.ReadLine()); - можно заменить так
 int Number1_1 = Convert.ToInt32(strNumber1_1);
 
 System.Console.Write("Введите второе число: ");
-string strNumber1_2 = Console.ReadLine();
+string? strNumber1_2 = Console.ReadLine();
 int Number1_2 = Convert.ToInt32(strNumber1_2);
 
 if (Number1_1 > Number1_2)
@@ -34,15 +34,15 @@ else
 
 System.Console.WriteLine("Задача 4");
 System.Console.Write("Введите первое число: ");
-string strNumber2_1 = Console.ReadLine();
+string? strNumber2_1 = Console.ReadLine();
 int Number2_1 = Convert.ToInt32(strNumber2_1);
 
 System.Console.Write("Введите второе число: ");
-string strNumber2_2 = Console.ReadLine();
+string? strNumber2_2 = Console.ReadLine();
 int Number2_2 = Convert.ToInt32(strNumber2_2);
 
 System.Console.Write("Введите третье число: ");
-string strNumber2_3 = Console.ReadLine();
+string? strNumber2_3 = Console.ReadLine();
 int Number2_3 = Convert.ToInt32(strNumber2_3);
 
 int max = Number2_1;
@@ -64,7 +64,7 @@ Console.WriteLine("max = " + max);
 
 System.Console.WriteLine("Задача 6");
 System.Console.Write("Введите число: ");
-string strNumber3_1 = Console.ReadLine();
+string? strNumber3_1 = Console.ReadLine();
 int Number3_1 = Convert.ToInt32(strNumber3_1);
 
 if (Number3_1 % 2 == 0)
@@ -86,7 +86,7 @@ else
 
 System.Console.WriteLine("Задача 8");
 System.Console.Write("Введите число: ");
-string strNumber4_1 = Console.ReadLine();
+string? strNumber4_1 = Console.ReadLine();
 int Number4_1 = Convert.ToInt32(strNumber4_1);
 
 if (Number4_1 <= 1)
@@ -119,7 +119,7 @@ System.Console.WriteLine();
 
 System.Console.WriteLine("Задача 8. Решение 2");
 System.Console.Write("Введите число: ");
-string strNumber4_2 = Console.ReadLine();
+string? strNumber4_2 = Console.ReadLine();
 int Number4_2 = Convert.ToInt32(strNumber4_2);
 
 
@@ -129,9 +129,9 @@ int res = 0;
 if (Number4_2 == 1) System.Console.WriteLine("Решений нет");
 if (Number4_2 <= 0) count2 *= -1;
 if (Number4_2 > 0) res = 2;
-    
+
 while (Math.Abs(res) <= Math.Abs(Number4_2))
 {
-        System.Console.Write(res + ", ");
-        res += count2;
+    System.Console.Write(res + ", ");
+    res += count2;
 }
