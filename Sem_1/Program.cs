@@ -7,7 +7,7 @@
 
 System.Console.WriteLine("Задача 2");
 System.Console.Write("Введите первое число: ");
-string strNumber1_1 = Console.ReadLine();
+string strNumber1_1 = Console.ReadLine();          // Int number = Convert.TOint32(Console.ReadLine()); - можно заменить так
 int Number1_1 = Convert.ToInt32(strNumber1_1);
 
 System.Console.Write("Введите второе число: ");
@@ -47,14 +47,9 @@ int Number2_3 = Convert.ToInt32(strNumber2_3);
 
 int max = Number2_1;
 
-if (Number2_2 > max)
-{
-    max = Number2_2;
-}
-if (Number2_3 > max)
-{
-    max = Number2_3;
-}
+if (Number2_2 > max) max = Number2_2;
+
+if (Number2_3 > max) max = Number2_3;
 
 Console.WriteLine("max = " + max);
 
