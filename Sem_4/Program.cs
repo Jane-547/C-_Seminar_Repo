@@ -72,6 +72,18 @@ void Put (int [] Numbers)
   return;
 }
 
+void PutHands (int [] elements)
+{
+  int length = elements.Length;
+  
+  for (int i = 0; i < length; i++)
+  {
+      System.Console.WriteLine("Введите элемент: ");
+      elements[i] = int.Parse(Console.ReadLine());
+  }
+  return;
+}
+
 void Print (int[] point)
 {
   int digit = point.Length;
@@ -83,4 +95,10 @@ void Print (int[] point)
 }
 
 Put(Array);
-Print (Array);
+Print(Array);
+
+System.Console.WriteLine();
+System.Console.WriteLine("--------------Вариант с ручным вводом элементов--------------");
+
+PutHands(Array);
+Print(Array);
