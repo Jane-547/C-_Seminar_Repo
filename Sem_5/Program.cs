@@ -64,7 +64,7 @@ int CountPositiveNumbers(int[] Array)  // Метод для подсчета к�
     int count = 0;
     foreach (var value in Array)
     {
-        if (value % 2 == 0) count++;
+        value % 2 == 0 ? count++ : 0;
     }
     return count;
 }
@@ -87,7 +87,7 @@ double[] RandomDoubleArray(int size, int minValue, int maxValue)  // Метод 
 
     for (int i = 0; i < size; i++)
     {
-        res[i] = Math.Round((rand.Next(minValue, maxValue + 1) + rand.NextDouble()), 2);
+        res[i] = Convert.ToDouble(rand.Next(-100, 100)/10.0);
     }
     return res;
 }
