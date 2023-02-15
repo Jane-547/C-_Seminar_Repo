@@ -29,30 +29,40 @@
 //     System.Console.WriteLine(res);
 // }
 
-int[] Array = new int[8];
+// int[] Array = new int[8];
 
-void PutHands (int [] elements)
-{
-  int length = elements.Length;
+// void PutHands (int [] elements)
+// {
+//   int length = elements.Length;
   
-  for (int i = 0; i < length; i++)
-  {
-      System.Console.WriteLine("Введите элемент: ");
-      elements[i] = int.Parse(Console.ReadLine());
-  }
-  return;
-}
+//   for (int i = 0; i < length; i++)
+//   {
+//       System.Console.WriteLine("Введите элемент: ");
+//       elements[i] = int.Parse(Console.ReadLine());
+//   }
+//   return;
+// }
 
-void Print (int[] point)
+// void Print (int[] point)
+// {
+//   int digit = point.Length;
+//   for (int count = 0; count < digit; count++)
+//   {
+//       System.Console.Write(point[count] + " ");
+//   }
+//   return;
+// }
+
+// PutHands(Array);
+// Print (Array);
+
+int[] GetAB(int num1, int num2)
 {
-  int digit = point.Length;
-  for (int count = 0; count < digit; count++)
-  {
-      System.Console.Write(point[count] + " ");
-  }
-  return;
+    int[] Array = new int[2];
+    Console.WriteLine("Enter the 1st number: ");
+    Array[0] = int.Parse(Console.ReadLine());
+    Console.Write("Enter the 2d number: ");
+    Array[1] = int.Parse(Console.ReadLine());
+    return Array;
+    Console.Write($"Entered numbers {Array[0]}, {Array[1]}");
 }
-
-PutHands(Array);
-Print (Array);
-
