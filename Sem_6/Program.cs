@@ -1,68 +1,97 @@
-﻿/*
-Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿Console.Clear();
 
-0, 7, 8, -2, -2 -> 2
+ProgramHomework6();
 
-1, -7, 567, 89, 223-> 3
-*/
+void ProgramHomework6()  // Запускатор
+{
+  while (true)
+  {
+    System.Console.Write("Введите номер задачи(41, 43, 44 или 000 для выхода): ");
 
-//   System.Console.WriteLine("Введите 5 целых чисел через пробел:");
-//   string values = Console.ReadLine();
-    
-//   string[] stringValues = values.Split(' ');
+    int task = int.Parse(Console.ReadLine());
 
+    switch (task)
+    {
+      case 41:
+        Console.Clear();
+        System.Console.WriteLine("Задача 41. Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.");
+        System.Console.WriteLine("Введите целые числа через пробел:");
+        int[] outValues = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+        System.Console.WriteLine($"Пользователь ввел {CountPositiveNumbers(outValues)} чисел больше 0");
+        break;
 
+      case 43:
+        Console.Clear();
+        System.Console.Write("Задача 43. Напишите программу, которая найдёт точку пересечения двух прямых, ");
+        System.Console.WriteLine("заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.");
+        Task43();
+        break;
 
-// int ArrayFromString (string [] array)
-// {
-//   int [] outValues = new int [5];
+      case 44:
+        Console.Clear();
+        System.Console.WriteLine("Задача 44:выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.");
+        System.Console.WriteLine("Введите число n:");
+        PrintFibonacci(int.Parse(Console.ReadLine()));
+        break;
 
-//   for (int i = 0; i < array.Length; i++)
-//   {
-//       outValues [i] = int.Parse(array [i]);
-//   }
-//   return outValues;
-// }
+      case 000:
+        return;
+        break;
 
-// int CountPositiveNumbers(int[] array)  // Метод для подсчета количества положительных элементов
-// {
-//     int count = 0;
-//     foreach (var i in array)
-//     {
-//         i > 0 ? count++ : 0;
-//     }
-//     return count;
-// }
+      default:
+        Console.Clear();
+        System.Console.WriteLine("Неверное значение");
+        break;
+    }
+  }
+}
 
-// ArrayFromString(stringValues);
-// CountPositiveNumbers(ArrayFromString);
+int CountPositiveNumbers(int[] array)  // Метод для подсчета количества положительных элементов
+{
+  int count = 0;
+  foreach (var i in array)
+  {
+    if (i > 0)
+      count++;
+  }
+  return count;
+}
 
-// System.Console.WriteLine($"Пользователь ввел {CountPositiveNumbers} чисел больше 0");
+void Task43()  // Метод для решения задачи № 43
+{
+  System.Console.Write("Задайте значение b1: ");
+  double b1 = int.Parse(Console.ReadLine());
 
+  System.Console.Write("Задайте значение b2: ");
+  double b2 = int.Parse(Console.ReadLine());
 
-// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+  System.Console.Write("Задайте значение k1: ");
+  double k1 = int.Parse(Console.ReadLine());
 
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+  System.Console.Write("Задайте значение k2: ");
+  double k2 = int.Parse(Console.ReadLine());
 
-// Задача 44:выведите первые N чисел
-// Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+  double x = (b2 - b1) / (k1 - k2);
+  double y = k2 * x + b2;
 
-// int Fibonacci (int n)
-// {
-//   if (n == 1 || n == 2) return 1;
-//   else 
-//   {
-//     return Fibonacci (n-1) + Fibonacci (n-2);
-//   }
-// }
+  if ((y != k1 * x + b1) || (k1 - k2 == 0)) System.Console.WriteLine("Решений нет!");
+  else
+  {
+    System.Console.WriteLine($"Координаты пересечения двух прямых, x, y: ({x}); ({y})");
+  }
+}
 
-// System.Console.WriteLine("Введите число n:");
-// int n = (int.Parse(Console.ReadLine()));
-// System.Console.WriteLine("0");
+int Fibonacci (int n)  // Метод для вычисления числа Фибоначчи
+{
+return n > 1 ? Fibonacci(n - 1) + Fibonacci(n - 2) : n;
+}
 
-// Fibonacci (n);
+int PrintFibonacci (int n)  //  Вывод последовательности Фибоначчи
+{
 
-// for (int i = 1; i < n; i++)
-//   {
-//     System.Console.WriteLine(Fibonacci(i));
-//   }
+  for (int i = 0; i < n; i++)
+  {
+    System.Console.WriteLine(Fibonacci(i));
+  }
+  return Fibonacci(n);
+}
