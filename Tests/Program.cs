@@ -34,7 +34,7 @@
 // void PutHands (int [] elements)
 // {
 //   int length = elements.Length;
-  
+
 //   for (int i = 0; i < length; i++)
 //   {
 //       System.Console.WriteLine("Введите элемент: ");
@@ -56,13 +56,43 @@
 // PutHands(Array);
 // Print (Array);
 
-int[] GetAB(int num1, int num2)
+int numRows = NumFromConsole("Rows");
+int numColumns = NumFromConsole("Columns");
+int numMinValue = NumFromConsole("Min Value");
+int numMaxValue = NumFromConsole("Max Value");
+
+var matrix = GetMatrix(numRows, numColumns, numMinValue, numMaxValue);
+Print(matrix);
+
+int NumFromConsole(string userNumber)
 {
-    int[] Array = new int[2];
-    Console.WriteLine("Enter the 1st number: ");
-    Array[0] = int.Parse(Console.ReadLine());
-    Console.Write("Enter the 2d number: ");
-    Array[1] = int.Parse(Console.ReadLine());
-    return Array;
-    Console.Write($"Entered numbers {Array[0]}, {Array[1]}");
+    Console.Write($"Введите значение {userNumber}: ");
+    int number = int.Parse(Console.ReadLine());
+    return number;
+}
+
+
+double [,] DoubleMatrix(int rows, int columns, int min, int max)
+{
+    double [,] matrix = new double [rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            matrix[i, j] = new Random().Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
+
+void Print(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int l = 0; l < matrix.GetLength(1); l++)
+        {
+            System.Console.Write(matrix[i, l] + " ");
+        }
+        System.Console.WriteLine();
+    }
 }
