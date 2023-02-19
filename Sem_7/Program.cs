@@ -151,9 +151,11 @@ void ColumnsAverage(int[,] matrix)  //  Метод для вычисления �
         double sum = 0;
         double average = 0;
         for (int i = 0; i < matrix.GetLength(0); i++)
+        {
             sum = sum + matrix[i, j];
-        average = sum / matrix.GetLength(1);
-        System.Console.WriteLine($"столбец {j}: {Math.Round(average, 2)} ");
+        }
+        average = sum / matrix.GetLength(0);
+        System.Console.WriteLine($"столбец {j}: {Math.Round(average, 2)}");
     }
 }
 

@@ -79,35 +79,35 @@
 
 // PrintMatrix(spiralMatrix);
 
-int size = NumFromConsole("размер матрицы");
-int [,] matrix62 = new int [size,size];
-SpiralFilling (matrix62);
-PrintMatrix(matrix62);
+// int size = NumFromConsole("размер матрицы");
+// int [,] matrix62 = new int [size,size];
+// SpiralFilling (matrix62);
+// PrintMatrix(matrix62);
 
 
 
-int [,] SpiralFilling (int [,] matrix)
-{
-    int value = 1;
-    int maxIndex = size - 1;
-    int i = 0;
-    int j = 0;
+// int [,] SpiralFilling (int [,] matrix)
+// {
+//     int value = 1;
+//     int maxIndex = size - 1;
+//     int i = 0;
+//     int j = 0;
 
-  while (value <= size * size)
-  {
-    matrix [i,j] = value;
-    value++;
-    if (i <= j + 1 && i + j < maxIndex)
-        j++;
-    else if (i < j && i + j >= maxIndex)
-        i++;
-    else if (i >= j && i + j > maxIndex)
-        j--;
-    else
-        i--;   
-  }
-  return matrix;
-}
+//   while (value <= size * size)
+//   {
+//     matrix [i,j] = value;
+//     value++;
+//     if (i <= j + 1 && i + j < maxIndex)
+//         j++;
+//     else if (i < j && i + j >= maxIndex)
+//         i++;
+//     else if (i >= j && i + j > maxIndex)
+//         j--;
+//     else
+//         i--;   
+//   }
+//   return matrix;
+// }
 
 
 
@@ -137,9 +137,6 @@ void PrintMatrix(int [,] matrix)  // Есть
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (matrix[i,j] >= 0 && matrix[i,j] < 10)
-            System.Console.Write("0" + matrix[i, j] + " ");
-            else
             System.Console.Write(matrix[i, j] + " ");
         }
         System.Console.WriteLine();
@@ -160,15 +157,27 @@ void IndexValue (int [,] matrix) // Есть
     }
 }
 
+                int numRows = NumFromConsole("Rows");
+                int numColumns = NumFromConsole("Columns");
+                int numMinValue = NumFromConsole("Min Value");
+                int numMaxValue = NumFromConsole("Max Value");
+                int[,] matrix52 = IntMatrix(numRows, numColumns, numMinValue, numMaxValue);
+                PrintMatrix(matrix52);
+                System.Console.WriteLine($"Среднее арифметическое: ");
+                ColumnsAverage(matrix52);
+                
+
 void ColumnsAverage (int [,] matrix)  //  Есть
 {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+    for (int j = 0; j < matrix.GetLength (1); j++)
+    {
+        double sum = 0;
+        double average = 0;
+        for (int i = 0; i < matrix.GetLength (0); i++)
         {
-            double sum = 0;
-            double average = 0;
-            for (int i = 0; i < matrix.GetLength(0); i++)
             sum = sum + matrix [i,j];
-            average = sum / matrix.GetLength(1);
-            System.Console.WriteLine($"столбец {j}: {Math.Round(average, 2)} ");
         }
+        average = sum / matrix.GetLength (0);
+        System.Console.WriteLine($"столбец {j}: {Math.Round(average, 2)}");
+    }
 }
