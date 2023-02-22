@@ -113,54 +113,66 @@
 
 // Задача 54: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
+System.Console.WriteLine("Первая матрица:");
 int matrixRows = NumFromConsole("количество строк");
 int matrixColumns = NumFromConsole("количество столбцов");
 int matrixMinValue = NumFromConsole("минимальное значение числа");
 int matrixMaxValue = NumFromConsole("максимальное значение числа");
-int [,] matrix56 = IntMatrix (matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
-PrintMatrix(matrix56);
-System.Console.WriteLine($"Строка с минимальной суммой элементов находится под {MinRowSum (matrix56)} индексом");
+int[,] firstMatrix58 = IntMatrix(matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
+System.Console.WriteLine("Вторая матрица:");
+matrixRows = NumFromConsole("количество строк");
+matrixColumns = NumFromConsole("количество столбцов");
+matrixMinValue = NumFromConsole("минимальное значение числа");
+matrixMaxValue = NumFromConsole("максимальное значение числа");
+int[,] secondMatrix58 = IntMatrix(matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
+PrintMatrix(firstMatrix58);
+System.Console.WriteLine();
+PrintMatrix(secondMatrix58);
+
+int [,] 
 
 
-
-int MinRowSum (int [,] matrix)  //  Метод для нахождения строки с минимальной суммой элементов
+int MinRowSum(int[,] matrix)  //  Метод для нахождения строки с минимальной суммой элементов
 {
     int row = 0;
+    int? min = null;
+
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        int min = 0;
         int sum = 0;
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            sum = matrix [i,j]++;
+            sum = sum + matrix[i, j];
         }
-        if (sum < min)
+        if (min == null) min = sum;
+        else if (sum < min)
         {
             min = sum;
             row = i;
         }
+        System.Console.WriteLine($"Сумма элементов {i} строки равна {sum}");
     }
     return row;
 }
 
 
 
-void SortRows (int [,] matrix)  //  Метод для сортировки чисел в строке матрицы
+void SortRows(int[,] matrix)  //  Метод для сортировки чисел в строке матрицы
 {
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            for (int k = 0; k < matrix.GetLength(1)-1; k++)
+            for (int k = 0; k < matrix.GetLength(1) - 1; k++)
             {
-                if (matrix[i,k] < matrix [i,k+1])
+                if (matrix[i, k] < matrix[i, k + 1])
                 {
-                    int temp = matrix [i,k+1];
-                    matrix [i,k+1] = matrix[i,k];
-                    matrix[i,k] = temp;
+                    int temp = matrix[i, k + 1];
+                    matrix[i, k + 1] = matrix[i, k];
+                    matrix[i, k] = temp;
                 }
             }
-            
+
         }
     }
 }

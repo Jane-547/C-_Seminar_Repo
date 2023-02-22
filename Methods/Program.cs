@@ -341,3 +341,26 @@ void SortRows (int [,] matrix)  //  Метод для сортировки чи�
     }
 }
 
+int MinRowSum(int[,] matrix)  //  Метод для нахождения строки с минимальной суммой элементов
+{
+    int row = 0;
+    int? min = null;
+
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            sum = sum + matrix[i, j];
+        }
+        if (min == null) min = sum;
+        else if (sum < min)
+        {
+            min = sum;
+            row = i;
+        }
+        System.Console.WriteLine($"Сумма элементов {i} строки равна {sum}");
+    }
+    return row;
+}
+
