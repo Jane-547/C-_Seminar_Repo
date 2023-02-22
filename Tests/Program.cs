@@ -111,14 +111,46 @@
 
 
 
-int NumFromConsole(string userNumber)  //  Есть
+// Задача 54: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+int matrixRows = NumFromConsole("количество строк");
+int matrixColumns = NumFromConsole("количество столбцов");
+int matrixMinValue = NumFromConsole("минимальное значение числа");
+int matrixMaxValue = NumFromConsole("максимальное значение числа");
+int [,] matrix56 = IntMatrix (matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
+PrintMatrix(matrix56);
+
+
+
+
+void SortRows (int [,] matrix)  //  Метод для сортировки чисел в строке матрицы
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int k = 0; k < matrix.GetLength(1)-1; k++)
+            {
+                if (matrix[i,k] < matrix [i,k+1])
+                {
+                    int temp = matrix [i,k+1];
+                    matrix [i,k+1] = matrix[i,k];
+                    matrix[i,k] = temp;
+                }
+            }
+            
+        }
+    }
+}
+
+int NumFromConsole(string userNumber)  //  Метод для ввода значений с консоли
 {
     Console.Write($"Введите значение {userNumber}: ");
     int number = int.Parse(Console.ReadLine());
     return number;
 }
 
-int[,] IntMatrix(int rows, int columns, int min, int max)  // Есть
+int[,] IntMatrix(int rows, int columns, int min, int max)  // Метод для заполнения матрицы случайными целыми числами
 {
     int[,] matrix = new int[rows, columns];
     for (int i = 0; i < rows; i++)
@@ -131,53 +163,17 @@ int[,] IntMatrix(int rows, int columns, int min, int max)  // Есть
     return matrix;
 }
 
-void PrintMatrix(int [,] matrix)  // Есть
+void PrintMatrix(int[,] matrix)  // Метод для вывода матрицы int
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            System.Console.Write(matrix[i, j] + " ");
+            if (matrix[i, j] >= 0 && matrix[i, j] < 10)
+                System.Console.Write("0" + matrix[i, j] + " ");
+            else
+                System.Console.Write(matrix[i, j] + " ");
         }
         System.Console.WriteLine();
-    }
-}
-
-
-void IndexValue (int [,] matrix) // Есть
-{
-    int userI = NumFromConsole("индекс строки");
-    int userJ = NumFromConsole("индекс столбца");
-
-    if (userI > matrix.GetLength(0) || userJ > matrix.GetLength(1))
-    System.Console.WriteLine("Такого элемента нет!");
-    else
-    {
-        System.Console.WriteLine($"На этой позиции находится число {matrix [userI,userJ]}");
-    }
-}
-
-                int numRows = NumFromConsole("Rows");
-                int numColumns = NumFromConsole("Columns");
-                int numMinValue = NumFromConsole("Min Value");
-                int numMaxValue = NumFromConsole("Max Value");
-                int[,] matrix52 = IntMatrix(numRows, numColumns, numMinValue, numMaxValue);
-                PrintMatrix(matrix52);
-                System.Console.WriteLine($"Среднее арифметическое: ");
-                ColumnsAverage(matrix52);
-                
-
-void ColumnsAverage (int [,] matrix)  //  Есть
-{
-    for (int j = 0; j < matrix.GetLength (1); j++)
-    {
-        double sum = 0;
-        double average = 0;
-        for (int i = 0; i < matrix.GetLength (0); i++)
-        {
-            sum = sum + matrix [i,j];
-        }
-        average = sum / matrix.GetLength (0);
-        System.Console.WriteLine($"столбец {j}: {Math.Round(average, 2)}");
     }
 }
