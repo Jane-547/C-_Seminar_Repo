@@ -119,7 +119,29 @@ int matrixMinValue = NumFromConsole("минимальное значение ч�
 int matrixMaxValue = NumFromConsole("максимальное значение числа");
 int [,] matrix56 = IntMatrix (matrixRows, matrixColumns, matrixMinValue, matrixMaxValue);
 PrintMatrix(matrix56);
+System.Console.WriteLine($"Строка с минимальной суммой элементов находится под {MinRowSum (matrix56)} индексом");
 
+
+
+int MinRowSum (int [,] matrix)  //  Метод для нахождения строки с минимальной суммой элементов
+{
+    int row = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        int min = 0;
+        int sum = 0;
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            sum = matrix [i,j]++;
+        }
+        if (sum < min)
+        {
+            min = sum;
+            row = i;
+        }
+    }
+    return row;
+}
 
 
 
