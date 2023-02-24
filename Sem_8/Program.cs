@@ -208,7 +208,7 @@ int[,,] CubeMatrix(int valueX, int valueY, int valueZ)  // Метод для з�
 {
     int[,,] matrix = new int[valueX, valueY, valueZ];
 
-    if ((valueX * valueY * valueZ) > 99) Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 99");
+    if ((valueX * valueY * valueZ) > 90) Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
     int[] array = new int[90];
     PutOrder(array);
     Shuffle(array);
