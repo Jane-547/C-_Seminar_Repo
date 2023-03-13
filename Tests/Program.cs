@@ -342,7 +342,7 @@ void Print(string [] point)  //  Метод вывод в консоль одн�
     return;
 }
 
-int CountOfValues (string [] array)
+int CountOfValues (string [] array) // Метод для подсчета количества элементов в результирующем массиве
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -355,7 +355,7 @@ int CountOfValues (string [] array)
     return count;
 }
 
-string [] ThreeDigitsArray (string [] array)
+string [] ThreeDigitsArray (string [] array) //  Метод для записи элементов длиной больше 3-х символов в новый массив
 {
     int j = 0;
     for (int i = 0; i < array.Length; i++)
