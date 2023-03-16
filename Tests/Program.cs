@@ -354,7 +354,15 @@ int valueN = NumFromConsole("значение N");
 
 int SumOfElements (int m, int n)  //  Метод для подсчета суммы элементов от M до N
 {
-    
+    int sum = 0;
+    if (m == n) return m;
+    else
+    {
+        for (int i = m; i <= n; i++)
+        {
+        
+        }
+    }
     return sum;
 }
 
