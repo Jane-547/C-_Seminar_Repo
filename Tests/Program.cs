@@ -302,6 +302,7 @@ void PrintMatrix(int[,] matrix)  // Метод для вывода матриц�
 
 string [] UserArray = new string[NumFromConsole("размер массива")];
 StringKeyboard(UserArray);
+Console.Clear();
 System.Console.WriteLine("Начальный массив: ");
 Print(UserArray);
 int size = CountOfValues (UserArray);
