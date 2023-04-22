@@ -450,3 +450,14 @@ void Print3dMatrix(int[,,] matrix)  //  Метод для вывода в кон
         }
     }
 }
+
+int NaturalN (int n)  // Метод для вывода натуральных чисел от N до 1
+{
+if (n < 1) return 1;
+else
+    {
+        System.Console.WriteLine(n);
+    }
+    return NaturalN(n - 1);
+}
+

@@ -16,12 +16,12 @@ void ProgramHomework9()  // Метод для запуска
                 Console.Clear();
                 System.Console.WriteLine("Задача 64. Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.");
                 int numberN = NumFromConsole("число N");
-               
+                NaturalN (numberN);
                 break;
 
-            case 56:
+            case 66:
                 Console.Clear();
-                System.Console.WriteLine("Задача 56. Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.");
+                System.Console.WriteLine("Задача 66. Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.");
                 
                 break;
 
@@ -48,5 +48,15 @@ int NumFromConsole(string userNumber)  //  Метод для ввода знач
     Console.Write($"Введите значение {userNumber}: ");
     int number = int.Parse(Console.ReadLine());
     return number;
+}
+
+int NaturalN (int n)  // Метод для вывода натуральных чисел от N до 1
+{
+if (n < 1) return 1;
+else
+    {
+        System.Console.WriteLine(n);
+    }
+    return NaturalN(n - 1);
 }
 
