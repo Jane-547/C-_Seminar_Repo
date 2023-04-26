@@ -369,6 +369,50 @@ int SumOfElements (int m, int n)  //  Метод для подсчета сум�
 }
 
 
+int[,] IntMatrix(int rows, int columns, int min, int max)  // Метод для заполнения матрицы случайными целыми числами
+{
+    int[,] matrix = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            matrix[i, j] = new Random().Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
+
+void PrintMatrix(int[,] matrix)  // Метод для вывода матрицы int
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] >= 0 && matrix[i, j] < 10)
+                System.Console.Write("0" + matrix[i, j] + " ");
+            else
+                System.Console.Write(matrix[i, j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+// Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+
+string [] UserArray = new string[NumFromConsole("размер массива")];
+StringKeyboard(UserArray);
+Console.Clear();
+System.Console.WriteLine("Начальный массив: ");
+Print(UserArray);
+int size = CountOfValues (UserArray);
+string [] resultArray = new string [size];
+ThreeDigitsArray(UserArray);
+System.Console.WriteLine();
+System.Console.WriteLine("Конечный массив: ");
+Print(resultArray);
+
+Console.ReadKey();
+
 int NumFromConsole(string userNumber)  //  Метод для ввода значений с консоли
 {
     Console.Write($"Введите значение {userNumber}: ");
