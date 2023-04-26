@@ -352,6 +352,8 @@
 int valueM = NumFromConsole("значение M");
 int valueN = NumFromConsole("значение N");
 
+System.Console.WriteLine(SumOfElements(valueM, valueN));
+
 int SumOfElements (int m, int n)  //  Метод для подсчета суммы элементов от M до N
 {
     int sum = 0;
@@ -360,7 +362,7 @@ int SumOfElements (int m, int n)  //  Метод для подсчета сум�
     {
         for (int i = m; i <= n; i++)
         {
-        
+            sum = SumOfElements(m, n) + SumOfElements(m+1, n);
         }
     }
     return sum;
