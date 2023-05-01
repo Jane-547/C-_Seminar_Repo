@@ -25,15 +25,61 @@
 //    System.out.println("Catching exception: " + e);
 // }
 
-try
-{
-  int d = 0;
+// System.Console.WriteLine("Начинаем");
 
-  int [] array = new int [8];
-  double catchedRes1 = array / d;
-  System.Console.WriteLine($"catchedRes1 = {catchedRes1}");
+// int d = 0;
+
+// int [] array = new int [9];
+
+// try
+// {
+//   double catchedRes1 = array[8] / d;
+//   System.Console.WriteLine($"catchedRes1 = {catchedRes1}");
+// }
+// catch (ArithmeticException e)
+// {
+//   System.Console.WriteLine("Catching exception: " + e);
+// }
+// System.Console.WriteLine("Конец");
+
+// Дан следующий код, исправьте его там, где требуется
+
+// public static void main(String[] args) throws Exception {
+//    try {
+//        int a = 90;
+//        int b = 3;
+//        System.out.println(a / b);
+//        printSum(23, 234);
+//        int[] abc = { 1, 2 };
+//        abc[3] = 9;
+//    } catch (Throwable ex) {
+//        System.out.println("Что-то пошло не так...");
+//    } catch (NullPointerException ex) {
+//        System.out.println("Указатель не может указывать на null!");
+//    } catch (IndexOutOfBoundsException ex) {
+//        System.out.println("Массив выходит за пределы своего размера!");
+//    }
+// }
+// public static void printSum(Integer a, Integer b) throws FileNotFoundException {
+//    System.out.println(a + b);
+// }
+
+public static void main(String[] args) throws Exception {
+   try {
+       int a = 90;
+       int b = 3;
+       System.out.println(a / b);
+       printSum(23, 234);
+       int[] abc = { 1, 2 };
+       abc[3] = 9;
+   } catch (Throwable ex) {
+       System.out.println("Что-то пошло не так...");
+   } catch (NullPointerException ex) {
+       System.out.println("Указатель не может указывать на null!");
+   } catch (IndexOutOfBoundsException ex) {
+       System.out.println("Массив выходит за пределы своего размера!");
+   }
 }
-catch (ArithmeticException e)
-{
-  System.Console.WriteLine("Catching exception: " + e);
+public static void printSum(Integer a, Integer b) throws FileNotFoundException {
+   System.out.println(a + b);
 }
