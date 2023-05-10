@@ -63,7 +63,9 @@ System.Console.WriteLine("Конец");
 //    System.out.println(a + b);
 // }
 
-static void main(String[] args)
+main();
+
+static void main()
 {
     int a = 90;
     int b = 3;
