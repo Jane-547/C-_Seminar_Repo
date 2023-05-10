@@ -2,18 +2,18 @@
 // Ввод текста вместо числа не должно приводить к падению приложения, вместо этого, необходимо повторно запросить у
 // пользователя ввод данных.
 
-// float NumberFloat ()
-// {
-//   float resNum = 0; 
-//   System.Console.Write("Введите дробное число: ");
-//   while (! float.TryParse(Console.ReadLine(), out resNum))
-//   {
-//     System.Console.WriteLine("Вы ввели не числовое значение! Введите дробное число: ");
-//   }
-//   return resNum;
-// }
+float NumberFloat ()
+{
+  float resNum = 0; 
+  System.Console.Write("Введите дробное число: ");
+  while (! float.TryParse(Console.ReadLine(), out resNum))
+  {
+    System.Console.WriteLine("Вы ввели не числовое значение! Введите дробное число: ");
+  }
+  return resNum;
+}
 
-// System.Console.WriteLine($"Вы ввели число {NumberFloat ()}");
+System.Console.WriteLine($"Вы ввели число {NumberFloat ()}");
 
 // 2. Если необходимо, исправьте данный код:
 
@@ -25,24 +25,23 @@
 //    System.out.println("Catching exception: " + e);
 // }
 
-// System.Console.WriteLine("Начинаем");
+System.Console.WriteLine("Начинаем");
 
-// int d = 0;
+int [] array = new int [9] {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-// int [] array = new int [9];
+try
+{
+  int d = 0;
+  double catchedRes1 = array[8] / d;
+  System.Console.WriteLine($"catchedRes1 = {catchedRes1}");
+}
+catch (ArithmeticException e)
+{
+  System.Console.WriteLine("Catching exception: " + e);
+}
+System.Console.WriteLine("Конец");
 
-// try
-// {
-//   double catchedRes1 = array[8] / d;
-//   System.Console.WriteLine($"catchedRes1 = {catchedRes1}");
-// }
-// catch (ArithmeticException e)
-// {
-//   System.Console.WriteLine("Catching exception: " + e);
-// }
-// System.Console.WriteLine("Конец");
-
-// Дан следующий код, исправьте его там, где требуется
+//3. Дан следующий код, исправьте его там, где требуется
 
 // public static void main(String[] args) throws Exception {
 //    try {
@@ -64,22 +63,48 @@
 //    System.out.println(a + b);
 // }
 
-public static void main(String[] args) throws Exception {
-   try {
-       int a = 90;
-       int b = 3;
-       System.out.println(a / b);
-       printSum(23, 234);
-       int[] abc = { 1, 2 };
-       abc[3] = 9;
-   } catch (Throwable ex) {
-       System.out.println("Что-то пошло не так...");
-   } catch (NullPointerException ex) {
-       System.out.println("Указатель не может указывать на null!");
-   } catch (IndexOutOfBoundsException ex) {
-       System.out.println("Массив выходит за пределы своего размера!");
-   }
+static void main(String[] args)
+{
+    int a = 90;
+    int b = 3;
+    try
+    {
+        System.Console.WriteLine(a / b);
+            printSum(23, 234);
+            int[] abc = { 1, 2 };
+            abc[3] = 9;
+    }
+    catch (NullReferenceException ex)
+    {
+        System.Console.WriteLine("Указатель не может указывать на null!");
+    }
+    catch (IndexOutOfRangeException ex)
+    {
+        System.Console.WriteLine("Массив выходит за пределы своего размера!");
+    }
+    catch (Exception ex)
+    {
+        System.Console.WriteLine("Что-то пошло не так...");
+    }
 }
-public static void printSum(Integer a, Integer b) throws FileNotFoundException {
-   System.out.println(a + b);
+
+static void printSum(int a, int b) 
+{
+    System.Console.WriteLine(a + b);
 }
+
+// 4. Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку. 
+// Пользователю должно показаться сообщение, что пустые строки вводить нельзя.
+
+void notEmpty ()
+{
+    System.Console.Write("Введите строку: ");
+    string words = Console.ReadLine();
+    if (string.IsNullOrWhiteSpace(words)) throw new Exception("Пустые строки вводить нельзя");
+    else
+    {
+        System.Console.WriteLine(words);
+    }
+}
+
+notEmpty();
