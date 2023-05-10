@@ -98,6 +98,8 @@ static void printSum(int a, int b)
 // 4. Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку. 
 // Пользователю должно показаться сообщение, что пустые строки вводить нельзя.
 
+notEmpty();
+
 void notEmpty ()
 {
     System.Console.Write("Введите строку: ");
@@ -108,5 +110,3 @@ void notEmpty ()
         System.Console.WriteLine(words);
     }
 }
-
-notEmpty();
