@@ -1,10 +1,12 @@
 package ui;
 
+import exception.MyException;
 import presenter.Presenter;
 
+import java.io.IOException;
 import java.util.Scanner;
 
-public class ConsoleUI implements View{
+public class ConsoleUI implements View {
 
     private Presenter presenter;
     private Scanner scanner;
@@ -17,14 +19,26 @@ public class ConsoleUI implements View{
     }
 
     @Override
-    public void start() {
-        while (work){
-            String data = hello();
-            presenter.getInfo(city);
+    public void start(){
+        while (work) {
+            try {
+                hello();
+                String data = scan();
+                if (data == null) {
+                    throw new IOException("Вы не ввели данные");
+                }
+                else if (data.equals("0")) {
+                    finish();
+                } else {
+                    presenter.writeData(data);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private String hello () {
+    private void hello() {
         System.out.println("Введите следующие данные в произвольном порядке, разделенные пробелом:");
         System.out.println("Фамилия Имя Отчество, дата рождения, номер телефона, пол");
         System.out.println("Форматы данных:");
@@ -32,10 +46,11 @@ public class ConsoleUI implements View{
         System.out.println("дата_рождения - строка формата dd.mm.yyyy");
         System.out.println("номер_телефона - целое беззнаковое число без форматирования");
         System.out.println("пол - символ латиницей f или m.");
-        return scanner.nextLine();
+        System.out.println("Для выхода нажмите 0");
     }
-    private String scan() {
-        System.out.println("Введите город");
+
+    @Override
+    public String scan() {
         return scanner.nextLine();
     }
 
@@ -46,6 +61,8 @@ public class ConsoleUI implements View{
 
     @Override
     public void finish() {
-
+        System.out.println("Работа приложения завершена.");
+        scanner.close();
+        work = false;
     }
 }

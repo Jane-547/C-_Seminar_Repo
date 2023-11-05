@@ -2,17 +2,15 @@ package service.data;
 
 import service.Service;
 
-import java.time.LocalDate;
-
 public class Data implements Service {
     private String lastname;
     private String name;
     private String patronymic;
-    private LocalDate birthDate;
+    private String birthDate;
     private Gender gender;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    public Data(String lastname, String name, String patronymic, LocalDate birthDate, Gender gender, int phoneNumber) {
+    public Data(String lastname, String name, String patronymic, String birthDate, Gender gender, String phoneNumber) {
         this.lastname = lastname;
         this.name = name;
         this.patronymic = patronymic;
@@ -27,7 +25,7 @@ public class Data implements Service {
         this.patronymic = null;
         this.birthDate = null;
         this.gender = null;
-        this.phoneNumber = 0;
+        this.phoneNumber = null;
     }
 
     @Override
@@ -46,7 +44,7 @@ public class Data implements Service {
     }
 
     @Override
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
@@ -56,7 +54,13 @@ public class Data implements Service {
     }
 
     @Override
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "<" + lastname + "><" + name + "><" + patronymic + "><" + birthDate + "><" + phoneNumber + "><" + gender + ">";
+
     }
 }
