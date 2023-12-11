@@ -1,6 +1,8 @@
-package ui;
+package view;
 
-import exception.MyException;
+import model.exceptions.MyException;
+import model.service.Service;
+import model.service.write.Writable;
 import presenter.Presenter;
 
 import java.io.IOException;
@@ -24,13 +26,18 @@ public class ConsoleUI implements View {
             try {
                 hello();
                 String data = scan();
+                presenter.setData(data);
                 if (data == null) {
                     throw new IOException("Вы не ввели данные");
                 }
                 else if (data.equals("0")) {
                     finish();
                 } else {
-                    presenter.writeData(data);
+                    try {
+                        presenter.writeData(data);
+                    } catch (MyException e) {
+                        System.out.println(e.getMessage());
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -64,5 +71,13 @@ public class ConsoleUI implements View {
         System.out.println("Работа приложения завершена.");
         scanner.close();
         work = false;
+    }
+
+    public void setService(Service service) {
+        presenter.setService(service);
+    }
+
+    public void setWritable(Writable writable) {
+        presenter.setWritable(writable);
     }
 }

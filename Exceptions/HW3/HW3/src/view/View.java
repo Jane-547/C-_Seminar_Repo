@@ -1,6 +1,6 @@
-package ui;
+package view;
 
-import exception.MyException;
+import model.exceptions.MyException;
 
 import java.io.IOException;
 

@@ -1,8 +1,7 @@
-package service.data;
+package model.service.data;
 
-import service.Service;
 
-public class Data implements Service {
+public class Data{
     private String lastname;
     private String name;
     private String patronymic;
@@ -28,32 +27,26 @@ public class Data implements Service {
         this.phoneNumber = null;
     }
 
-    @Override
     public String getLastname() {
         return lastname;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public String getPatronymic() {
         return patronymic;
     }
 
-    @Override
     public String getBirthDate() {
         return birthDate;
     }
 
-    @Override
     public Gender getGender() {
         return gender;
     }
 
-    @Override
     public String getPhoneNumber() {
         return phoneNumber;
     }

@@ -1,42 +1,36 @@
 package presenter;
 
-import exception.MyException;
-import service.FileHandler;
-import service.Formatter;
-import service.data.Data;
-import ui.View;
+import model.exceptions.MyException;
+import model.service.Service;
+import model.service.write.Writable;
+import view.View;
 
 import java.io.IOException;
 
 public class Presenter {
 
     private View view;
-
+    private Service service;
 
 
     public Presenter(View view) {
         this.view = view;
     }
 
-    public void writeData(String fromUser) {
-        Formatter formatter = new Formatter(fromUser);
-        try {
-            if (formatter.getDataLength() == 0) {
-                try {
-                    Data result = formatter.parse();
-                    if (result == null) {
-                        throw new MyException("Запись данных в файл невозможна!");
-                    }
-                    String answer = result.toString();
-                    view.print(answer);
-                    FileHandler fh = new FileHandler();
-                    fh.write(result);
-                } catch (MyException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    public void setData(String fromUser) {
+        service.setData(fromUser);
+    }
+    public void writeData(String fromUser) throws MyException, IOException{
+        String result = service.writeData(fromUser);
+        String answer = result.toString();
+        view.print(answer);
+    }
+
+    public void setWritable(Writable writable) {
+        service.setWritable(writable);
     }
 }
